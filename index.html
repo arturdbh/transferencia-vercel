@@ -4,561 +4,225 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datos de transferencia | A3 Store</title>
-  <meta name="description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Datos de transferencia | A3 Store" />
-  <meta property="og:description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
   <meta property="og:image" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
-  <meta property="og:image:secure_url" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="630" />
-  <meta property="og:image:height" content="1200" />
-  <meta property="og:image:alt" content="Datos de transferencia A3 Store" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Datos de transferencia | A3 Store" />
-  <meta name="twitter:description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
-  <meta name="twitter:image" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
   <meta property="og:url" content="https://transferencia-vercel.vercel.app" />
-
-  <meta name="theme-color" content="#5b2cff" />
 
   <style>
     :root {
       --bg: #09090f;
-      --bg-2: #11131d;
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.74);
-      --muted-2: rgba(255,255,255,0.56);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-      --radius: 30px;
-      --grad-1: linear-gradient(135deg, #53d8ff 0%, #2a62ff 22%, #6a24ff 42%, #ff2fb3 58%, #ff3b2f 74%, #ff9d00 88%, #ffe24a 100%);
-      --glass: rgba(255,255,255,0.06);
-      --glass-2: rgba(255,255,255,0.09);
-      --line: rgba(255,255,255,0.08);
-      --line-2: rgba(255,255,255,0.14);
+      --text: #fff;
+      --muted: rgba(255,255,255,0.7);
+      --grad: linear-gradient(135deg,#53d8ff,#6a24ff,#ff2fb3,#ff9d00);
     }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(83,216,255,.16), transparent 24%),
-        radial-gradient(circle at 100% 15%, rgba(106,36,255,.18), transparent 26%),
-        radial-gradient(circle at 85% 100%, rgba(255,59,47,.14), transparent 22%),
-        radial-gradient(circle at 0% 100%, rgba(255,157,0,.12), transparent 20%),
-        radial-gradient(circle at top, #13141d 0%, #09090f 58%);
-      overflow-x: hidden;
+      margin:0;
+      font-family: Inter, sans-serif;
+      background: radial-gradient(circle at top,#13141d,#09090f);
+      color:var(--text);
     }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      inset: auto;
-      width: 38vw;
-      height: 38vw;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.16;
-      pointer-events: none;
-      z-index: 0;
-      animation: floatGlow 10s ease-in-out infinite;
-    }
-
-    body::before {
-      top: -10vw;
-      left: -8vw;
-      background: linear-gradient(135deg, #53d8ff, #2a62ff, #6a24ff);
-    }
-
-    body::after {
-      right: -10vw;
-      bottom: -12vw;
-      background: linear-gradient(135deg, #ff2fb3, #ff3b2f, #ffe24a);
-      animation-delay: -4s;
-    }
-
-    .wrap {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 860px;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 22px;
-      animation: fadeUp .7s ease both;
-    }
+    .wrap {padding:20px;max-width:600px;margin:auto}
 
     .logo {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 16px;
-      border-radius: 26px;
-      overflow: hidden;
-      background: none;
-      padding: 0;
-      box-shadow: none;
+      width:140px;
+      height:140px;
+      margin:auto;
+      opacity:0;
+      animation: fadeIn 1s ease 1.2s forwards;
     }
 
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 10px;
-      border-radius: 22px;
-      display: block;
-      background: #0c0d14;
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain
     }
 
-    h1 {
-      font-size: clamp(2rem, 6vw, 3.6rem);
-      margin: 10px 0 8px;
-      letter-spacing: -0.04em;
-      line-height: .96;
+    h1{
+      text-align:center;
+      font-size:30px;
+      margin-bottom:20px;
+      animation: fadeIn 1.2s ease;
     }
 
-    .gradient-text {
-      background: var(--grad-1);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .wallet{display:flex;flex-direction:column;gap:18px}
+
+    .card{
+      padding:24px;
+      border-radius:26px;
+      background:linear-gradient(135deg,#111,#1a1d2e);
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+      position:relative;
+      overflow:hidden;
+      animation: slideUp .8s ease;
     }
 
-    .subtitle {
-      max-width: 560px;
-      margin: 0 auto;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--muted);
+    .card.primary{
+      box-shadow:0 0 50px rgba(83,216,255,.45);
     }
 
-    .wallet {
-      display: grid;
-      gap: 18px;
-      perspective: 1400px;
+    .card::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.15),transparent);
+      animation: shine 5s infinite;
     }
 
-    .card {
-      position: relative;
-      padding: 26px;
-      border-radius: 30px;
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04) 34%, rgba(255,255,255,0.03) 100%),
-        linear-gradient(135deg, rgba(12,14,25,0.94), rgba(16,20,35,0.96));
-      box-shadow: var(--shadow);
-      border: none;
-      overflow: hidden;
-      isolation: isolate;
-      min-height: 260px;
-      transform-style: preserve-3d;
-      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
-      animation: fadeUp .9s ease both;
+    .card-head{display:flex;justify-content:space-between;align-items:center}
+
+    .brand-mark{width:60px;height:60px}
+    .brand-mark.primary{width:80px;height:80px}
+
+    .brand-mark img{width:100%;height:100%;object-fit:contain}
+
+    .bank-title{font-weight:bold;font-size:18px}
+
+    .card-number{
+      font-family:monospace;
+      margin:16px 0;
+      letter-spacing:2px;
     }
 
-    .card:hover {
-      border-color: var(--line-2);
-      box-shadow: 0 30px 90px rgba(0,0,0,.5);
+    .field{margin-bottom:12px}
+
+    .value-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent 24%);
-      pointer-events: none;
-      z-index: 0;
+    .copy-btn{
+      background:#222;
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      transition:.2s;
     }
 
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: auto -50px -85px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: var(--grad-1);
-      opacity: .16;
-      filter: blur(28px);
-      z-index: 0;
-      pointer-events: none;
+    .copy-btn:hover{background:#333}
+
+    .copy-btn.copied{
+      background:#53d8ff;
+      color:#000;
     }
 
-    .shine {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.2) 48%, transparent 62%);
-      transform: translateX(-140%);
-      animation: shineMove 6s ease-in-out infinite;
-      z-index: 1;
-      pointer-events: none;
+    .footer{text-align:center;margin-top:20px;color:var(--muted)}
+
+    @keyframes shine{
+      0%{left:-100%}
+      50%{left:120%}
+      100%{left:120%}
     }
 
-    .card-head,
-    .card-number,
-    .field,
-    .swipe-hint {
-      position: relative;
-      z-index: 2;
+    @keyframes slideUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
     }
 
-    .card-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 22px;
+    @keyframes fadeIn{
+      from{opacity:0}
+      to{opacity:1}
     }
 
-    .bank-meta {
-      display: grid;
-      gap: 8px;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-    }
-
-    .bank-title {
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: white;
-      font-size: 12px;
-      font-weight: 700;
-      backdrop-filter: blur(10px);
-    }
-
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.08);
-      flex: 0 0 auto;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 6px;
-      display: block;
-    }
-
-    .card-number {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: clamp(1.05rem, 3.2vw, 1.35rem);
-      letter-spacing: .18em;
-      line-height: 1.5;
-      margin-bottom: 18px;
-      text-shadow: 0 4px 30px rgba(0,0,0,.22);
-      word-break: break-word;
-    }
-
-    .field-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .field {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-    }
-
-    .label {
-      font-size: 11px;
-      color: var(--muted-2);
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      margin-bottom: 8px;
-    }
-
-    .value-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .value {
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 1.5;
-      word-break: break-word;
-      max-width: 100%;
-    }
-
-    .copy-btn {
-      background: var(--glass-2);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: white;
-      padding: 9px 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-      backdrop-filter: blur(12px);
-      white-space: nowrap;
-    }
-
-    .copy-btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.12);
-    }
-
-    .copy-btn.copied {
-      background: rgba(83,216,255,.18);
-      border-color: rgba(83,216,255,.34);
-      color: #dff9ff;
-    }
-
-    .swipe-hint {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 2px;
-      color: var(--muted-2);
-      font-size: 12px;
-      letter-spacing: .03em;
-    }
-
-    .dots {
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.28);
-    }
-
-    .dot.active {
-      width: 20px;
-      background: linear-gradient(90deg, #53d8ff, #6a24ff, #ff2fb3);
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    @keyframes shineMove {
-      0%, 100% { transform: translateX(-140%); }
-      45%, 55% { transform: translateX(140%); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes floatGlow {
-      0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(0,18px,0) scale(1.06); }
-    }
-
-    @media (min-width: 760px) {
-      .wallet {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .swipe-hint { display: none; }
-    }
-
-    @media (max-width: 759px) {
-      .wallet {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        min-width: 100%;
-      }
-    }
-
-      .wallet::-webkit-scrollbar { display: none; }
-
-      .card {
-        min-width: calc(100vw - 40px);
-        scroll-snap-align: center;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap { padding: 14px 10px 24px; }
-      .page { max-width: 100%; }
-      .logo { width: 92px; height: 92px; }
-      .card { padding: 16px; border-radius: 24px; min-height: 240px; }
-      .card-number { letter-spacing: .12em; font-size: 1rem; }
-      .value-row { align-items: stretch; }
-      .copy-btn { width: 100%; }
-      body::before,
-      body::after { width: 58vw; height: 58vw; }
-    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="page">
 
-      <header class="hero">
-        <div class="logo">
-          <img src="./logo.png" alt="Logo A3 Store" />
-        </div>
-        <h1>Elige tu <span class="gradient-text">tarjeta de transferencia</span></h1>
-        <p class="subtitle">Desliza si estás en celular, elige el banco que prefieras y copia el dato que necesites con un toque.</p>
-      </header>
+<div class="wrap">
 
-      <section class="wallet">
-        <article class="card card-tilt">
-          <div class="shine"></div>
-          <div class="card-head">
-            <div class="bank-meta">
-              <div class="eyebrow">Transferencia</div>
-              <div class="bank-title">Banco Azteca</div>
-              <div class="chip">Principal</div>
-            </div>
-            <div class="brand-mark">
-              <img src="./logo.png" alt="Logo A3 Store" />
-            </div>
-          </div>
+<div class="logo"><img src="logo.png"></div>
+<h1>Transferencia</h1>
 
-          <div class="card-number">1271 8001 3548 2415 77</div>
+<div class="wallet">
 
-          <div class="field-grid">
-            <div class="field">
-              <div class="label">Beneficiario</div>
-              <div class="value-row">
-                <div class="value">Arturo Del Barrio Hernandez</div>
-                <button class="copy-btn" data-copy="Arturo Del Barrio Hernandez">Copiar</button>
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="label">CLABE</div>
-              <div class="value-row">
-                <div class="value">127180013548241577</div>
-                <button class="copy-btn" data-copy="127180013548241577">Copiar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-tilt">
-          <div class="shine"></div>
-          <div class="card-head">
-            <div class="bank-meta">
-              <div class="eyebrow">Transferencia</div>
-              <div class="bank-title">BBVA Bancomer</div>
-              <div class="chip">Alternativa</div>
-            </div>
-            <div class="brand-mark">
-              <img src="./logo.png" alt="Logo A3 Store" />
-            </div>
-          </div>
-
-          <div class="card-number">0121 8001 5188 5802 22</div>
-
-          <div class="field-grid">
-            <div class="field">
-              <div class="label">Beneficiario</div>
-              <div class="value-row">
-                <div class="value">Arturo Del Barrio Hernandez</div>
-                <button class="copy-btn" data-copy="Arturo Del Barrio Hernandez">Copiar</button>
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="label">CLABE</div>
-              <div class="value-row">
-                <div class="value">012180015188580222</div>
-                <button class="copy-btn" data-copy="012180015188580222">Copiar</button>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <div class="swipe-hint">
-        <span>Desliza para ver más</span>
-        <span class="dots"><span class="dot active"></span><span class="dot"></span></span>
-      </div>
-
-      <div class="footer">ADBA Diseño 2026</div>
-
+<div class="card primary">
+  <div class="card-head">
+    <div>
+      <div class="bank-title">Banco Azteca</div>
+      <div>Principal</div>
     </div>
-  </main>
+    <div class="brand-mark primary"><img src="logo.png"></div>
+  </div>
 
-  <script>
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(btn.dataset.copy);
-          const original = btn.textContent;
-          btn.textContent = 'Copiado';
-          btn.classList.add('copied');
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove('copied');
-          }, 1400);
-        } catch (e) {
-          alert(btn.dataset.copy);
-        }
-      });
-    });
+  <div class="card-number">1271 8001 3548 2415 77</div>
 
-    if (window.matchMedia('(pointer:fine)').matches) {
-      document.querySelectorAll('.card-tilt').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const rotateY = ((x / rect.width) - 0.5) * 10;
-          const rotateX = ((y / rect.height) - 0.5) * -10;
-          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-        });
+  <div class="field">
+    Beneficiario
+    <div class="value-row">
+      Arturo Del Barrio Hernandez
+      <button class="copy-btn" data-copy="Arturo Del Barrio Hernandez">Copiar</button>
+    </div>
+  </div>
 
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
-        });
-      });
-    }
-  </script>
+  <div class="field">
+    CLABE
+    <div class="value-row">
+      127180013548241577
+      <button class="copy-btn" data-copy="127180013548241577">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div>
+      <div class="bank-title">BBVA</div>
+      <div>Alternativa</div>
+    </div>
+    <div class="brand-mark"><img src="logo.png"></div>
+  </div>
+
+  <div class="card-number">0121 8001 5188 5802 22</div>
+
+  <div class="field">
+    Beneficiario
+    <div class="value-row">
+      Arturo Del Barrio Hernandez
+      <button class="copy-btn" data-copy="Arturo Del Barrio Hernandez">Copiar</button>
+    </div>
+  </div>
+
+  <div class="field">
+    CLABE
+    <div class="value-row">
+      012180015188580222
+      <button class="copy-btn" data-copy="012180015188580222">Copiar</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">ADBA Diseño 2026</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+ btn.addEventListener('click', async ()=>{
+   try{
+     await navigator.clipboard.writeText(btn.dataset.copy);
+     btn.textContent='Copiado';
+     btn.classList.add('copied');
+     setTimeout(()=>{
+       btn.textContent='Copiar';
+       btn.classList.remove('copied');
+     },1200);
+   }catch(e){
+     alert(btn.dataset.copy);
+   }
+ });
+});
+</script>
+
 </body>
 </html>
