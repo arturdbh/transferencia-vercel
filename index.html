@@ -6,11 +6,20 @@
   <title>Datos de transferencia | A3 Store</title>
   <meta name="description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
 
-  <meta property="og:type" content="transferencia-vercel-gwy0kd6nk-arturdbhs-projects.vercel.app" />
-  <meta property="og:title" content="transferencia-vercel-gwy0kd6nk-arturdbhs-projects.vercel.app" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Datos de transferencia | A3 Store" />
   <meta property="og:description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
-  <meta property="og:image" content="https://tu-dominio.vercel.app/logo-preview.jpg" />
-  <meta property="og:url" content="https://tu-dominio.vercel.app" />
+  <meta property="og:image" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
+  <meta property="og:image:secure_url" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="630" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Datos de transferencia A3 Store" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Datos de transferencia | A3 Store" />
+  <meta name="twitter:description" content="Te dejo el enlace de la transferencia para realizar tu pago de forma rápida y segura." />
+  <meta name="twitter:image" content="https://transferencia-vercel.vercel.app/og-image.png?v=1" />
+  <meta property="og:url" content="https://transferencia-vercel.vercel.app" />
 
   <meta name="theme-color" content="#5b2cff" />
 
@@ -96,14 +105,14 @@
     }
 
     .logo {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       margin: 0 auto 16px;
       border-radius: 26px;
       overflow: hidden;
-      background: var(--grad-1);
-      padding: 4px;
-      box-shadow: 0 16px 40px rgba(76, 56, 255, .28);
+      background: none;
+      padding: 0;
+      box-shadow: none;
     }
 
     .logo img {
@@ -146,13 +155,13 @@
 
     .card {
       position: relative;
-      padding: 22px;
+      padding: 26px;
       border-radius: 30px;
       background:
         linear-gradient(160deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04) 34%, rgba(255,255,255,0.03) 100%),
         linear-gradient(135deg, rgba(12,14,25,0.94), rgba(16,20,35,0.96));
       box-shadow: var(--shadow);
-      border: 1px solid var(--line);
+      border: none;
       overflow: hidden;
       isolation: isolate;
       min-height: 260px;
@@ -394,13 +403,14 @@
 
     @media (max-width: 759px) {
       .wallet {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 6px;
-        margin: 0 -2px;
-        scrollbar-width: none;
+        display: grid;
+        grid-template-columns: 1fr;
       }
+
+      .card {
+        min-width: 100%;
+      }
+    }
 
       .wallet::-webkit-scrollbar { display: none; }
 
